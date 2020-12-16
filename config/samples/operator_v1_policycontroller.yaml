@@ -1,0 +1,20 @@
+apiVersion: operator.ibm.com/v1
+kind: PolicyController
+metadata:
+  name: example-policycontroller
+  labels:
+    app.kubernetes.io/instance: ibm-iam-policy-operator
+    app.kubernetes.io/managed-by: ibm-iam-policy-operator
+    app.kubernetes.io/name: ibm-iam-policy-operator
+spec:
+  operatorVersion: "0.14.1"
+  imageRegistry: "quay.io/opencloudio/iam-policy-controller"
+  imageTagPostfix: "3.3.2"
+  replicas: 1
+  resources:
+    limits:
+      cpu: 200m
+      memory: 384Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi

@@ -1,0 +1,34 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: ibm-iam-policy-operator
+  labels:
+    app.kubernetes.io/instance: ibm-iam-policy-operator
+    app.kubernetes.io/managed-by: ibm-iam-policy-operator
+    app.kubernetes.io/name: ibm-iam-policy-operator
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ibm-iam-policy-operator
+subjects:
+- kind: ServiceAccount
+  name: ibm-iam-policy-operator
+  namespace: ibm-common-services
+---
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: iam-policy-controller-rolebinding
+  labels:
+    app: iam-policy-controller
+    app.kubernetes.io/instance: ibm-iam-policy-operator
+    app.kubernetes.io/managed-by: ibm-iam-policy-operator
+    app.kubernetes.io/name: ibm-iam-policy--operator
+subjects:
+  - kind: ServiceAccount
+    name: ibm-iam-policy-controller
+    namespace: ibm-common-services
+roleRef:
+  kind: ClusterRole
+  name: iam-policy-controller-role
+  apiGroup: rbac.authorization.k8s.io
