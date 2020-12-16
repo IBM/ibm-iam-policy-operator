@@ -220,15 +220,11 @@ spec:
           - update
           - watch
         - apiGroups:
-          - apps
-          resources:
-          - deployments/finalizers
-          verbs:
-          - update
-        - apiGroups:
           - operator.ibm.com
           resources:
           - policycontrollers
+          - policycontrollers/status
+          - policycontrollers/finalizers
           verbs:
           - create
           - delete
@@ -238,13 +234,13 @@ spec:
           - update
           - watch
         - apiGroups:
-          - operator.ibm.com
+          - ""
           resources:
-          - policycontrollers/status
+          - pods
           verbs:
           - get
-          - patch
-          - update
+          - list
+          - watch
         serviceAccountName: ibm-iam-policy-operator
     strategy: deployment
   installModes:
@@ -261,7 +257,7 @@ spec:
   - Cloud
   - Security
   links:
-  - name: IBM IAM Policy Controller Operator
+  - name: IBM IAM Policy Operator
     url: https://github.com/IBM/ibm-iam-policy-operator
   maintainers:
   - email: support@ibm.com

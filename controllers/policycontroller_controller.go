@@ -115,7 +115,7 @@ func (r *PolicyControllerReconciler) handleDeployment(instance *operatorv1.Polic
 			// Already exists from previous reconcile, requeue.
 			return ctrl.Result{Requeue: true}, nil
 		} else if err != nil {
-			r.Log.Error(err, "Failed to create new Audit Policy Controller Deployment", "Deployment.Namespace", expected.Namespace,
+			r.Log.Error(err, "Failed to create new Policy Controller Deployment", "Deployment.Namespace", expected.Namespace,
 				"Deployment.Name", expected.Name)
 			return ctrl.Result{}, err
 		}
