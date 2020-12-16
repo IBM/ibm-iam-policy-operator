@@ -93,7 +93,7 @@ var _ = BeforeSuite(func(done Done) {
 	// Setup Manager with PolicyController Controller
 	err = (&PolicyControllerReconciler{
 		Client: k8sManager.GetClient(),
-		Log:    ctrl.Log.WithName("controllers").WithName("AuditLogging"),
+		Log:    ctrl.Log.WithName("controllers").WithName("PolicyController"),
 		Scheme: k8sManager.GetScheme(),
 	}).SetupWithManager(k8sManager)
 	Expect(err).ToNot(HaveOccurred())

@@ -47,7 +47,9 @@ type PolicyControllerReconciler struct {
 
 // +kubebuilder:rbac:groups=operator.ibm.com,namespace=ibm-common-services,resources=policycontrollers,verbs=get;list;watch;create;update;patch;delete
 // +kubebuilder:rbac:groups=operator.ibm.com,namespace=ibm-common-services,resources=policycontrollers/status,verbs=get;update;patch
+// +kubebuilder:rbac:groups=operator.ibm.com,namespace=ibm-common-services,resources=policycontrollers/finalizers,verbs=get;update;patch
 // +kubebuilder:rbac:groups=apps,namespace=ibm-common-services,resources=deployments,verbs=get;list;watch;create;update;patch;delete
+// +kubebuilder:rbac:groups="",namespace=ibm-common-services,resources=pods,verbs=get;list;watch
 
 func (r *PolicyControllerReconciler) Reconcile(req ctrl.Request) (ctrl.Result, error) {
 	_ = context.Background()

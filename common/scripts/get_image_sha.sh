@@ -29,7 +29,7 @@ TYPE=$4
 if [[ $REGISTRY == "" ]] || [[ $NAME == "" ]] || [[ $TAG == "" ]] || [[ $TYPE == "" ]]
 then
    echo "Missing param. Need image registry, image name, image tag, and env variable indicating operand type. Type will be OPERATOR for operator image as input"
-   echo "for eg: quay.io/opencloudio audit-policy-controller 3.5.0 POLICY_CTRL_TAG_OR_SHA"
+   echo "for eg: quay.io/opencloudio iam-policy-controller 3.5.0 POLICY_CTRL_TAG_OR_SHA"
    exit 1
 fi
 

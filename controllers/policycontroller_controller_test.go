@@ -35,7 +35,7 @@ import (
 	. "github.com/onsi/gomega"
 )
 
-var _ = Describe("CommonAudit controller", func() {
+var _ = Describe("PolicyController controller", func() {
 	const requestName = "example-policycontroller"
 	const namespace = "test"
 	var (
