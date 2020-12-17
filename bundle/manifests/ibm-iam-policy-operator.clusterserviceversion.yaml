@@ -13,7 +13,7 @@ metadata:
               "app.kubernetes.io/managed-by": "ibm-iam-operator",
               "app.kubernetes.io/name": "ibm-iam-operator"
             },
-            "name": "policycontroller-deployment"
+            "name": "example-policycontroller"
           },
           "spec": {
             "imageRegistry": "quay.io/opencloudio/iam-policy-controller",
@@ -30,6 +30,33 @@ metadata:
                 "memory": "128Mi"
               }
             }
+          }
+        },
+        {
+          "apiVersion": "iam.policies.ibm.com/v1alpha1",
+          "kind": "IamPolicy",
+          "metadata": {
+            "labels": {
+              "app.kubernetes.io/instance": "iam-policy-controller",
+              "app.kubernetes.io/managed-by": "iam-policy-controller",
+              "app.kubernetes.io/name": "iam-policy-controller",
+              "category": "System-Integrity"
+            },
+            "name": "example-iam-policy"
+          },
+          "spec": {
+            "namespaceSelector": {
+              "include": [
+                "ibm-common-services"
+              ],
+              "exclude": [
+                "kube-system"
+              ]
+            },
+            "remediationAction": "inform",
+            "severity": "medium",
+            "maxClusterRoleBindingUsers": 5,
+            "maxRoleBindingViolationsPerNamespace": 2
           }
         }
       ]

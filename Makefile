@@ -150,6 +150,10 @@ uninstall-crd: manifests ## Uninstall CRDs from a cluster
 install: ## Install all resources (CR/CRD's, RBCA and Operator)
 	@echo ....... Creating namespace .......
 	- kubectl create namespace ${NAMESPACE}
+	@echo ....... Creating OperatorGroup .......
+	- cp common/util/operator_group.yaml og.yaml
+	- yq w -i og.yaml spec.targetNamespaces[+] ${NAMESPACE}
+	- oc create -f og.yaml -n ${NAMESPACE}
 	@echo ....... Applying manifests .......
 	- kubectl create sa ibm-iam-policy-operator -n ${NAMESPACE}
 	- kubectl create sa ibm-iam-policy-controller -n ${NAMESPACE}
@@ -175,6 +179,9 @@ uninstall: ## Uninstall all resources (CR/CRD's, RBCA and Operator)
 	- kubectl delete -f config/rbac/leader_election_role.yaml
 	- kubectl delete -f config/rbac/leader_election_role_binding.yaml
 	- for manifest in $(shell ls bundle/manifests/*.yaml); do kubectl delete -f $${manifest} -n ${NAMESPACE}; done
+	@echo ....... Deleting OperatorGroup .......
+	- oc delete -f og.yaml -n ${NAMESPACE}
+	- rm og.yaml
 
 deploy: manifests ## Deploy controller in the configured Kubernetes cluster in ~/.kube/config
 	cd config/manager && kustomize edit set image controller=$(IMAGE_REPO)/$(IMAGE_NAME):$(VERSION)
