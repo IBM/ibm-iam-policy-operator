@@ -1,0 +1,24 @@
+# permissions for end users to edit policycontrollers.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: policycontroller-editor-role
+rules:
+- apiGroups:
+  - operator.ibm.com
+  resources:
+  - policycontrollers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - operator.ibm.com
+  resources:
+  - policycontrollers/status
+  verbs:
+  - get
