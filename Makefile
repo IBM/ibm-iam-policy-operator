@@ -121,7 +121,6 @@ ifeq (, $(wildcard /usr/local/kubebuilder))
 	@./common/scripts/install-kubebuilder.sh
 endif
 
-
 install-operator-sdk: ## Install operator-sdk
 	@operator-sdk version 2> /dev/null ; if [ $$? -ne 0 ]; then ./common/scripts/install-operator-sdk.sh; fi
 
@@ -202,17 +201,13 @@ generate-all: manifests ## Generate bundle manifests, metadata and package manif
 test: ## Run unit test on prow
 	@echo "Running unit tests for the controllers."
 	@go test -v ./controllers/...
-	@rm -rf crds
 
 unit-test: generate code-fmt code-vet manifests ## Run unit test
 ifeq (, $(USE_EXISTING_CLUSTER))
-	@rm -rf crds
 	- make kube-builder
-	- make find-certmgr-crds
 endif
 	@echo "Running unit tests for the controllers."
 	@go test -v ./controllers/... -coverprofile cover.out
-	@rm -rf crds
 
 scorecard: operator-sdk ## Run scorecard test
 	@echo ... Running the scorecard test
@@ -220,10 +215,7 @@ scorecard: operator-sdk ## Run scorecard test
 
 ##@ Coverage
 coverage: ## Run code coverage test
-	@rm -rf crds
-	- make find-certmgr-crds
 	@common/scripts/codecov.sh ${BUILD_LOCALLY} "controllers/"
-	@rm -rf crds
 
 ##@ Build
 
