@@ -153,7 +153,6 @@ spec:
                 app.kubernetes.io/instance: ibm-iam-policy-operator
                 app.kubernetes.io/managed-by: ibm-iam-policy-operator
                 app.kubernetes.io/name: ibm-iam-policy-operator
-                intent: projected
                 name: ibm-iam-policy-operator
             spec:
               affinity:
@@ -173,16 +172,11 @@ spec:
                 command:
                 - /manager
                 env:
-                - name: OPERATOR_NAMESPACE
+                - name: WATCH_NAMESPACE
                   valueFrom:
                     fieldRef:
                       apiVersion: v1
                       fieldPath: metadata.namespace
-                - name: WATCH_NAMESPACE
-                  valueFrom:
-                    configMapKeyRef:
-                      name: namespace-scope
-                      key: namespaces
                 - name: POLICY_CONTROLLER_TAG_OR_SHA
                   value: sha256:0f20b1abe1ac4926b0d58ac30863e015f4f75f0fcc166c398a5348e1e2e8fa27
                 image: quay.io/opencloudio/ibm-iam-policy-operator:latest
