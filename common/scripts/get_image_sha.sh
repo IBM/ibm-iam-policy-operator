@@ -29,7 +29,7 @@ TYPE=$4
 if [[ $REGISTRY == "" ]] || [[ $NAME == "" ]] || [[ $TAG == "" ]] || [[ $TYPE == "" ]]
 then
    echo "Missing param. Need image registry, image name, image tag, and env variable indicating operand type. Type will be OPERATOR for operator image as input"
-   echo "for eg: quay.io/opencloudio iam-policy-controller 3.5.0 POLICY_CTRL_TAG_OR_SHA"
+   echo "for eg: quay.io/opencloudio iam-policy-controller 3.5.0 IAM_POLICY_CONTROLLER_IMAGE"
    exit 1
 fi
 
@@ -53,7 +53,7 @@ echo "SHA=$SHA"
 
 # delete the "name" and "value" lines for the old SHA
 # for example:
-#     - name: FLUENTD_TAG_OR_SHA
+#     - name: IAM_POLICY_CONTROLLER_IMAGE
 #       value: "sha256:10a844ffaf7733176e927e6c4faa04c2bc4410cf4d4ef61b9ae5240aa62d1456"
 
 sed -i "/name: $TYPE/{N;d;}" deploy/operator.yaml

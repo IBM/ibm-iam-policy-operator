@@ -45,7 +45,7 @@ var serviceAccountName = "ibm-iam-policy-controller"
 
 // DeploymentForPolicyController returns a IAM PolicyController Deployment object
 func DeploymentForPolicyController(instance *operatorv1.PolicyController) *appsv1.Deployment {
-	image := instance.Spec.ImageRegistry + utils.GetImageRef("POLICY_CONTROLLER_TAG_OR_SHA")
+	image := instance.Spec.ImageRegistry + utils.GetImageRef(constants.PolicyControllerImgEnvVar)
 	replicas := instance.Spec.Replicas
 	resources := instance.Spec.Resources
 

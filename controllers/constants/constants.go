@@ -18,6 +18,7 @@ package constants
 
 const (
 	IamPolicyControllerDepName = "iam-policy-controller"
+	PolicyControllerImgEnvVar  = "IAM_POLICY_CONTROLLER_IMAGE"
 	ProductName                = "IBM Cloud Platform Common Services"
 	ProductID                  = "068a62892a1e4db39641342e592daa25"
 	ProductMetric              = "FREE"
