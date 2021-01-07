@@ -31,8 +31,10 @@ spec:
           description: PolicyControllerSpec defines the desired state of PolicyController
           properties:
             imageRegistry:
+              description: ImageRegistry deprecated, define image in operator.yaml
               type: string
             imageTagPostfix:
+              description: ImageTagPostfix deprecated, define image in operator.yaml
               type: string
             operatorVersion:
               type: string

@@ -1,5 +1,5 @@
 //
-// Copyright 2020 IBM Corporation
+// Copyright 2021 IBM Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -21,26 +21,11 @@ import (
 
 	"github.com/IBM/ibm-iam-policy-operator/controllers/constants"
 
-	"os"
-	"strings"
-
 	corev1 "k8s.io/api/core/v1"
 	logf "sigs.k8s.io/controller-runtime/pkg/log"
 )
 
 var log = logf.Log.WithName("resources")
-
-func GetImageRef(envVar string) string {
-	var imageSuffix string
-	imageTagOrSHA := os.Getenv(envVar)
-	if strings.HasPrefix(imageTagOrSHA, "sha256:") {
-		imageSuffix = "@" + imageTagOrSHA
-	} else {
-		imageSuffix = ":" + imageTagOrSHA
-	}
-
-	return imageSuffix
-}
 
 // GetPodNames returns the pod names of the array of pods passed in
 func GetPodNames(pods []corev1.Pod) []string {

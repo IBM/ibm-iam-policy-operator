@@ -1,5 +1,5 @@
 //
-// Copyright 2020 IBM Corporation
+// Copyright 2021 IBM Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -17,6 +17,7 @@
 package resources
 
 import (
+	"os"
 	"reflect"
 	gorun "runtime"
 
@@ -45,7 +46,7 @@ var serviceAccountName = "ibm-iam-policy-controller"
 
 // DeploymentForPolicyController returns a IAM PolicyController Deployment object
 func DeploymentForPolicyController(instance *operatorv1.PolicyController) *appsv1.Deployment {
-	image := instance.Spec.ImageRegistry + utils.GetImageRef(constants.PolicyControllerImgEnvVar)
+	image := os.Getenv(constants.PolicyControllerImgEnvVar)
 	replicas := instance.Spec.Replicas
 	resources := instance.Spec.Resources
 
