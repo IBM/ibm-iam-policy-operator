@@ -33,6 +33,7 @@ The ibm-iam-policy-operator supports running with the OpenShift Container Platfo
 For more information about the OpenShift Container Platform Security Context Constraints, see [Managing Security Context Constraints](https://docs.openshift.com/container-platform/4.3/authentication/managing-security-context-constraints.html).
 
 OCP 4.3 restricted SCC:
+
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
