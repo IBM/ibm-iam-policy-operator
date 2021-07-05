@@ -1,6 +1,6 @@
 # ibm-iam-policy-operator
 
-An operator that deploys the IAM policy controller which detects the cluster administrator role and IAM role binding violations
+An operator that deploys the IAM policy controller which detects the cluster administrator role and IAM role binding violations.
 
 > **Important**: Do not install this operator directly. Only install this operator using the IBM Common Services Operator. For more information about installing this operator and other Common Services operators, see Installer documentation. If you are using this operator as part of an IBM Cloud Pak, see the documentation for that IBM Cloud Pak to learn more about how to install and use the operator service. For more information about IBM Cloud Paks, see IBM Cloud Paks that use Common Services.
 
