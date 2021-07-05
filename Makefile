@@ -150,10 +150,11 @@ uninstall-crd: manifests ## Uninstall CRDs from a cluster
 install: ## Install all resources (CR/CRD's, RBCA and Operator)
 	@echo ....... Creating namespace .......
 	- kubectl create namespace ${NAMESPACE}
+	# Only create OG if installing without other common services
 	@echo ....... Creating OperatorGroup .......
-	- cp common/util/operator_group.yaml og.yaml
-	- yq w -i og.yaml spec.targetNamespaces[+] ${NAMESPACE}
-	- oc create -f og.yaml -n ${NAMESPACE}
+# 	- cp common/util/operator_group.yaml og.yaml
+# 	- yq w -i og.yaml spec.targetNamespaces[+] ${NAMESPACE}
+# 	- oc create -f og.yaml -n ${NAMESPACE}
 	@echo ....... Applying manifests .......
 	- kubectl create sa ibm-iam-policy-operator -n ${NAMESPACE}
 	- kubectl create sa ibm-iam-policy-controller -n ${NAMESPACE}

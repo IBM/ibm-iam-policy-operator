@@ -1,5 +1,5 @@
 //
-// Copyright 2020 IBM Corporation
+// Copyright 2021 IBM Corporation
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -23,9 +23,11 @@ import (
 
 // PolicyControllerSpec defines the desired state of PolicyController
 type PolicyControllerSpec struct {
-	OperatorVersion string                       `json:"operatorVersion,omitempty"`
-	Replicas        int32                        `json:"replicas"`
-	ImageRegistry   string                       `json:"imageRegistry,omitempty"`
+	OperatorVersion string `json:"operatorVersion,omitempty"`
+	Replicas        int32  `json:"replicas"`
+	// ImageRegistry deprecated, define image in operator.yaml
+	ImageRegistry string `json:"imageRegistry,omitempty"`
+	// ImageTagPostfix deprecated, define image in operator.yaml
 	ImageTagPostfix string                       `json:"imageTagPostfix,omitempty"`
 	Resources       *corev1.ResourceRequirements `json:"resources,omitempty"`
 }

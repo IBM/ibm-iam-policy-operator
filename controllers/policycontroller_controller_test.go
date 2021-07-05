@@ -20,6 +20,7 @@ import (
 	"context"
 	"crypto/rand"
 	"fmt"
+	"os"
 
 	appsv1 "k8s.io/api/apps/v1"
 	corev1 "k8s.io/api/core/v1"
@@ -36,8 +37,13 @@ import (
 )
 
 var _ = Describe("PolicyController controller", func() {
-	const requestName = "example-policycontroller"
-	const namespace = "test"
+	const (
+		imgRegistry = "test.io/"
+		imgTag      = ":0.0.0"
+		namespace   = "test"
+		requestName = "example-policycontroller"
+	)
+
 	var (
 		ctx              context.Context
 		requestNamespace string
@@ -50,6 +56,8 @@ var _ = Describe("PolicyController controller", func() {
 		requestNamespace = createNSName(namespace)
 		By("Creating the Namespace")
 		Expect(k8sClient.Create(ctx, namespaceObj(requestNamespace))).Should(Succeed())
+
+		Expect(os.Setenv(constants.PolicyControllerImgEnvVar, imgRegistry+constants.IamPolicyControllerDepName+imgTag)).Should(Succeed())
 
 		pc = policyControllerObj(requestName, requestNamespace)
 		namespacedName = types.NamespacedName{Name: requestName, Namespace: requestNamespace}
