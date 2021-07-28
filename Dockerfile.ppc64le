@@ -44,7 +44,7 @@ RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go build -a -o manager main.go
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
 # FROM gcr.io/distroless/static:nonroot
-FROM registry.access.redhat.com/ubi8/ubi-minimal@sha256:ad1de47449386ae0f6009c38d714cbcc218d6f8087ea2d45272b671baa5072af
+FROM registry.access.redhat.com/ubi8/ubi-minimal@sha256:82b6decae91cf9cc9c3d65e264920e351850b2b3f4711b07d58d815fd4cdab3d
 
 ARG VCS_REF
 ARG VCS_URL
