@@ -37,7 +37,10 @@ RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go build -a -o manager main.go
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
 # FROM gcr.io/distroless/static:nonroot
-FROM registry.access.redhat.com/ubi8/ubi-minimal@sha256:7735715721f161dea5603092c040b5eb89ab101044617f67288a866d0f9d0aaa
+FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/ubi8-minimal:latest-amd64
+
+RUN microdnf update -y  && \
+    microdnf clean all
 
 ARG VCS_REF
 ARG VCS_URL
