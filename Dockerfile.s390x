@@ -47,9 +47,6 @@ RUN CGO_ENABLED=0 GOOS=linux GO111MODULE=on go build -a -o manager main.go
 # FROM gcr.io/distroless/static:nonroot
 FROM hyc-cloud-private-edge-docker-local.artifactory.swg-devops.com/build-images/ubi8-minimal:latest-s390x
 
-RUN microdnf update -y  && \
-    microdnf clean all
-
 ARG VCS_REF
 ARG VCS_URL
 
