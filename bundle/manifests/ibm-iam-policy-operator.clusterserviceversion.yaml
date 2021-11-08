@@ -69,13 +69,13 @@ metadata:
     operators.operatorframework.io/project_layout: go.kubebuilder.io/v2
     repository: https://github.com/IBM/ibm-iam-policy-operator
     support: IBM
-    olm.skipRange: '<1.0.6'
+    olm.skipRange: '<1.0.7'
   labels:
     operatorframework.io/arch.amd64: supported
     operatorframework.io/arch.ppc64le: supported
     operatorframework.io/arch.s390x: supported
     operatorframework.io/os.linux: supported
-  name: ibm-iam-policy-operator.v1.0.6
+  name: ibm-iam-policy-operator.v1.0.7
   namespace: ibm-common-services
 spec:
   apiservicedefinitions: {}
@@ -287,5 +287,5 @@ spec:
   maturity: stable
   provider:
     name: IBM
-  replaces: ibm-iam-policy-operator.v1.0.5
-  version: 1.0.6
+  replaces: ibm-iam-policy-operator.v1.0.6
+  version: 1.0.7
