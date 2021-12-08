@@ -220,10 +220,6 @@ scorecard: operator-sdk ## Run scorecard test
 	@echo ... Running the scorecard test
 	- operator-sdk scorecard --verbose
 
-##@ Coverage
-coverage: ## Run code coverage test
-	@common/scripts/codecov.sh ${BUILD_LOCALLY} "controllers/"
-
 ##@ Build
 
 ifeq ($(BUILD_LOCALLY),0)
