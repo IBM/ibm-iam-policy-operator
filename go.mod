@@ -6,8 +6,8 @@ require (
 	github.com/go-logr/logr v0.1.0
 	github.com/onsi/ginkgo v1.12.1
 	github.com/onsi/gomega v1.10.1
-	k8s.io/api v0.18.6
-	k8s.io/apimachinery v0.18.6
+	k8s.io/api v0.22.6
+	k8s.io/apimachinery v0.22.6
 	k8s.io/client-go v0.18.6
 	sigs.k8s.io/controller-runtime v0.6.2
 )
@@ -16,10 +16,10 @@ require (
 	cloud.google.com/go v0.38.0 // indirect
 	github.com/beorn7/perks v1.0.1 // indirect
 	github.com/davecgh/go-spew v1.1.1 // indirect
-	github.com/evanphx/json-patch v4.5.0+incompatible // indirect
+	github.com/evanphx/json-patch v4.9.0+incompatible // indirect
 	github.com/fsnotify/fsnotify v1.4.9 // indirect
 	github.com/go-logr/zapr v0.1.0 // indirect
-	github.com/gogo/protobuf v1.3.1 // indirect
+	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/groupcache v0.0.0-20190129154638-5b532d6fd5ef // indirect
 	github.com/golang/protobuf v1.4.2 // indirect
 	github.com/google/go-cmp v0.4.0 // indirect
@@ -42,13 +42,14 @@ require (
 	go.uber.org/atomic v1.4.0 // indirect
 	go.uber.org/multierr v1.1.0 // indirect
 	go.uber.org/zap v1.10.0 // indirect
-	golang.org/x/crypto v0.0.0-20200220183623-bac4c82f6975 // indirect
-	golang.org/x/net v0.0.0-20200520004742-59133d7f0dd7 // indirect
+	golang.org/x/crypto v0.0.0-20200622213623-75b288015ac9 // indirect
+	golang.org/x/net v0.0.0-20201110031124-69a78807bb2b // indirect
 	golang.org/x/oauth2 v0.0.0-20190604053449-0f29369cfe45 // indirect
-	golang.org/x/sys v0.0.0-20200323222414-85ca7c5b95cd // indirect
+	golang.org/x/sys v0.0.0-20201112073958-5cba982894dd // indirect
+	golang.org/x/term v0.0.0-20201117132131-f5c789dd3221 // indirect
 	golang.org/x/text v0.3.3 // indirect
 	golang.org/x/time v0.0.0-20190308202827-9d24e82272b4 // indirect
-	golang.org/x/xerrors v0.0.0-20191204190536-9bdfabe68543 // indirect
+	golang.org/x/xerrors v0.0.0-20200804184101-5ec99f83aff1 // indirect
 	gomodules.xyz/jsonpatch/v2 v2.0.1 // indirect
 	google.golang.org/appengine v1.5.0 // indirect
 	google.golang.org/protobuf v1.23.0 // indirect
@@ -60,6 +61,12 @@ require (
 	k8s.io/klog/v2 v2.0.0 // indirect
 	k8s.io/kube-openapi v0.0.0-20200410145947-61e04a5be9a6 // indirect
 	k8s.io/utils v0.0.0-20200603063816-c1c6865ac451 // indirect
-	sigs.k8s.io/structured-merge-diff/v3 v3.0.0 // indirect
+	sigs.k8s.io/structured-merge-diff/v3 v3.0.1 // indirect
 	sigs.k8s.io/yaml v1.2.0 // indirect
+)
+
+replace (
+	golang.org/x/crypto => golang.org/x/crypto v0.0.0-20201216223049-8b5274cf687f
+	k8s.io/api => k8s.io/api v0.18.19
+	k8s.io/apimachinery => k8s.io/apimachinery v0.18.19
 )
