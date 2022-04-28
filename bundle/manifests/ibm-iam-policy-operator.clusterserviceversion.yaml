@@ -62,7 +62,7 @@ metadata:
       ]
     capabilities: Basic Install
     certified: "false"
-    containerImage: quay.io/opencloudio/ibm-iam-policy-operator:latest
+    containerImage: cr.io/cpopen/ibm-iam-policy-operator:latest
     createdAt: "2020-12-15T17:05:48Z"
     description: IAM policy controller watches cluster administrator role and IAM role binding created and used within ICP/MCM. It detects the cluster administrator role and IAM role binding violations and report it. The controller shows whether or not a given IamPolicy is compliant or noncompliant.
     operators.operatorframework.io/builder: operator-sdk-v1.0.1
@@ -207,7 +207,7 @@ spec:
                       fieldPath: metadata.namespace
                 - name: POLICY_CONTROLLER_TAG_OR_SHA
                   value: sha256:0f20b1abe1ac4926b0d58ac30863e015f4f75f0fcc166c398a5348e1e2e8fa27
-                image: quay.io/opencloudio/ibm-iam-policy-operator:latest
+                image: cr.io/cpopen/ibm-iam-policy-operator:latest
                 imagePullPolicy: Always
                 name: ibm-iam-policy-operator
                 resources:
