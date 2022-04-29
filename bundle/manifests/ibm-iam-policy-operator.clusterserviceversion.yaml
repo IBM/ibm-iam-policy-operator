@@ -16,7 +16,7 @@ metadata:
             "name": "example-policycontroller"
           },
           "spec": {
-            "imageRegistry": "quay.io/opencloudio/iam-policy-controller",
+            "imageRegistry": "cr.io/cpopen/iam-policy-controller",
             "imageTagPostfix": "3.3.2",
             "operatorVersion": "0.14.1",
             "replicas": 1,
